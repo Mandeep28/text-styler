@@ -29,8 +29,7 @@ export default function Navbar(props) {
   // component start
   return (
     <nav
-      className={`navbar navbar-expand-lg border bg-${props.mode}`}
-      data-bs-theme={props.mode}
+      className={`navbar navbar-expand-sm border bg-${props.mode} navbar-${props.mode}`}
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
@@ -61,17 +60,17 @@ export default function Navbar(props) {
             </li>
           </ul>
           {/* <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </form> */}
-          <div className="btn-container">
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button className="btn btn-primary" type="submit">
+          Search
+        </button>
+      </form> */}
+          <div className="btn-container my-3 m">
             <span className="outer-circle green" onClick={handleGreenColor}>
               <span className="inner-circle "></span>
             </span>

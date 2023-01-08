@@ -13,7 +13,7 @@ function App() {
   // function to show alert
   const showAlert = (message, type) => {
     setAlert({
-      message: message,
+      msg: message,
       type: type,
     });
     setTimeout(() => {
@@ -57,7 +57,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Enter the text to analyze"
+                  heading="Try TextUtils - Covert Uppercase , Lowercase , remove extra spaces."
                   mode={mode}
                   showAlert={showAlert}
                   color={CustomcolorTheme}

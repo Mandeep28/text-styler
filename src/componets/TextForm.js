@@ -33,6 +33,12 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(copyText);
     props.showAlert("Copy to Clipboard", "success");
   };
+  // remove the extra spaces from the text
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+    props.showAlert("Extra spaces removed!", "success");
+  };
   // custom style "css"
   let myStyle = {
     backgroundColor: props.mode === "dark" ? "black" : "white",
@@ -41,59 +47,77 @@ export default function TextForm(props) {
   if (props.color !== null) {
     myStyle.backgroundColor = props.color;
   }
-  // function to count words
-  const countWords = (str) => {
-    let words;
-    if (text === "") {
-      words = 0;
-    } else {
-      words = str.trim().split(/\s+/).length;
-    }
-    return words;
-  };
+
   // component start
   return (
     <>
       <div className="mb-3 " style={myStyle}>
-        <h2 className="my-3">{props.heading} </h2>
+        <h2 className="my-4">{props.heading} </h2>
         <textarea
           className="form-control my-3 border border-primary"
           style={myStyle}
           id="text"
           value={text}
           onChange={handleOnChange}
-          rows="8"
+          rows="6"
         ></textarea>
 
-        <button className="btn btn-primary mx-2" onClick={handleUpperCase}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleUpperCase}
+        >
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerCase}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleLowerCase}
+        >
           Covert to Lower Case
         </button>
 
-        <button className="btn btn-primary mx-2" onClick={handleClearText}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleClearText}
+        >
           ClearText
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopyText}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleCopyText}
+        >
           CopyText
         </button>
-        {/* <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
-          Remove extra spaces
-        </button> */}
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleExtraSpaces}
+        >
+          Remove Extra Spaces
+        </button>
       </div>
       <div className="container" style={myStyle}>
         <h3>Your text summary</h3>
         <p>
-          {countWords(text)} words and {text.length} characters
+          {
+            text.split(" ").filter((item) => {
+              return item.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} minutes to read</p>
-        <h3>Preview</h3>
         <p>
-          {text.length > 0
-            ? text
-            : "Enter something in the above textBox to preview"}
+          {0.008 *
+            text.split(" ").filter((item) => {
+              return item.length !== 0;
+            }).length}{" "}
+          minutes to read
         </p>
+        <h3>Preview</h3>
+        <p>{text.length > 0 ? text : "Nothing to Preview !!!"}</p>
       </div>
     </>
   );
