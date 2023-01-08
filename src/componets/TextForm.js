@@ -52,7 +52,7 @@ export default function TextForm(props) {
   return (
     <>
       <div className="mb-3 " style={myStyle}>
-        <h2 className="my-4">{props.heading} </h2>
+        <h2 className="my-4 text-capitalize">{props.heading} </h2>
         <textarea
           className="form-control my-3 border border-primary"
           style={myStyle}
@@ -100,8 +100,8 @@ export default function TextForm(props) {
         </button>
       </div>
       <div className="container" style={myStyle}>
-        <h3>Your text summary</h3>
-        <p>
+        <h3 className="text-capitalize">Your text summary</h3>
+        <p className="text-capitalize">
           {
             text.split(/\s+/).filter((item) => {
               return item.length !== 0;
