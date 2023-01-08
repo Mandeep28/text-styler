@@ -24,7 +24,6 @@ export default function About(props) {
           Visit Developer Profile
         </a>
       </button>
-      {/* <h1 className="display-7 fw-bold">About Us</h1> */}
     </div>
   );
 }
