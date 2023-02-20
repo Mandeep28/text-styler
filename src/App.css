@@ -67,3 +67,7 @@ span {
 #flexSwitchCheckDefault {
   cursor: pointer;
 }
+
+.navbar-toggler, .form-control, .form-control:focus, .navbar-toggler:focus  {
+  box-shadow: none;
+}

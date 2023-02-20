@@ -5,26 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   // fucntions
-  const handleGreenColor = () => {
-    document.body.style.backgroundColor = "#b5ffcf";
-    props.color("#b5ffcf");
-  };
-  const handleRedColor = () => {
-    document.body.style.backgroundColor = "#f8d7da";
-    props.color("#f8d7da");
-  };
-  const handleBlueColor = () => {
-    document.body.style.backgroundColor = "#cff4fc";
-    props.color("#cff4fc");
-  };
-  const handlePurpleColor = () => {
-    document.body.style.backgroundColor = "#e1c2f6";
-    props.color("#e1c2f6");
-  };
-  const handleDefaultColor = () => {
-    document.body.style.backgroundColor = "white";
-    props.color(null);
-  };
+  
 
   // component start
   return (
@@ -59,23 +40,7 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <div className="btn-container my-3 m">
-            <span className="outer-circle green" onClick={handleGreenColor}>
-              <span className="inner-circle "></span>
-            </span>
-            <span className="outer-circle red" onClick={handleRedColor}>
-              <span className="inner-circle "></span>
-            </span>
-            <span className="outer-circle purple" onClick={handlePurpleColor}>
-              <span className="inner-circle "></span>
-            </span>
-            <span className="outer-circle blue" onClick={handleBlueColor}>
-              <span className="inner-circle "></span>
-            </span>
-            <span className="outer-circle default" onClick={handleDefaultColor}>
-              <span className="inner-circle "></span>
-            </span>
-          </div>
+  
           <div className="form-check form-switch">
             <input
               className="form-check-input"

@@ -9,7 +9,7 @@ export default function About(props) {
       <h1 className="display-7 fw-bold">About Us</h1>
 
       <p className=" fs-5 ">
-        This is a text utils web app create using&nbsp;
+        This is a text styler web app create using&nbsp;
         <a href="https://reactjs.org">Reactjs</a>. This app will take the text
         from the user and convert it to upper case , lower case , remove all
         extra spaces. Here you can copy the text, clear the text box. Also user

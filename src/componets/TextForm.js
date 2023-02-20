@@ -8,6 +8,21 @@ export default function TextForm(props) {
   const handleOnChange = (e) => {
     setText(e.target.value);
   };
+// download the file 
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+
   // handle the text on click on "convert uppercase" btn
   const handleUpperCase = () => {
     let newText = text.toUpperCase();
@@ -39,6 +54,23 @@ export default function TextForm(props) {
     setText(newText.join(" "));
     props.showAlert("Extra spaces removed!", "success");
   };
+  //  Capitalized the text from the text
+  const handleCapitalized = () => {
+    let newText = text.toLowerCase().split(' ');
+    for (let i = 0; i < newText.length; i++) {
+   newText[i] = newText[i].charAt(0).toUpperCase() + newText[i].substring(1);
+ }
+  setText(newText.join(" "));
+    props.showAlert("Convert to capitalized!", "success");
+  };
+
+  const handleSave =()=>{
+    download("MyNotes.txt",text);
+    props.showAlert("Text download successfully!", "success");
+  }
+
+
+
   // custom style "css"
   let myStyle = {
     backgroundColor: props.mode === "dark" ? "black" : "white",
@@ -76,6 +108,13 @@ export default function TextForm(props) {
         >
           Covert to Lower Case
         </button>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleCapitalized}
+        >
+          Covert to Capitalized
+        </button>
 
         <button
           className="btn btn-primary mx-2 my-2"
@@ -97,6 +136,13 @@ export default function TextForm(props) {
           onClick={handleExtraSpaces}
         >
           Remove Extra Spaces
+        </button>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          disabled={text.length === 0}
+          onClick={handleSave}
+        >
+          Save it
         </button>
       </div>
       <div className="container" style={myStyle}>

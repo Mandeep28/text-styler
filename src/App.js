@@ -30,11 +30,9 @@ function App() {
     if (mode === "dark") {
       setMode("light");
       document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enabled", "success");
     } else {
       setMode("dark");
       document.body.style.backgroundColor = "black";
-      showAlert("Dark mode has been enabled", "success");
     }
   };
 
@@ -42,8 +40,8 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar
-          title="TextUtils"
-          aboutText="About TextUtils"
+          title="Text Styler"
+          aboutText="About TextStyler"
           mode={mode}
           toggleBtn={toggleBtn}
           color={setCustomColor}
@@ -57,7 +55,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Try TextUtils - Covert Uppercase , Lowercase , remove extra spaces."
+                  heading="Try Text Styper - Covert Uppercase , Lowercase , remove extra spaces."
                   mode={mode}
                   showAlert={showAlert}
                   color={CustomcolorTheme}
